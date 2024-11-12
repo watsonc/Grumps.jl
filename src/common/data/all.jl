@@ -73,10 +73,10 @@ function GrumpsData(
     dθ = dθν + size(v.interactions,1)
 
     # process data needed for the micro likelihood
-    !usesmicrodata( e ) && isa( s.consumers, DataFrame ) && advisory( "ignoring the consumer information you specified\nsince it is not used for this estimator type" )
-    @ensure !usesmicrodata( e ) || isa( s.consumers, DataFrame ) "this estimator type requires consumer information; please pass consumer info in Sources"
+    #!usesmicrodata( e ) && isa( s.consumers, DataFrame ) && advisory( "ignoring the consumer information you specified\nsince it is not used for this estimator type" )
+    #@ensure !usesmicrodata( e ) || isa( s.consumers, DataFrame ) "this estimator type requires consumer information; please pass consumer info in Sources"
 
-    if isa( s.consumers, DataFrame ) && usesmicrodata( e )
+    if isa( s.consumers, DataFrame ) && usesmicrodata( e ) && !isnothing(s.consumers)
         MustBeInDF( [ v.market, v.choice ], s.consumers, "consumers" )
         nwgmic = NodesWeightsGlobal( microintegrator( integrators ), dθν, rngs[1]  )
         if replicable 
