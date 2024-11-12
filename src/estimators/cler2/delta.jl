@@ -2,14 +2,14 @@
 
 
 
-function easy( x, m )
-    if x == nothing return nothing end
-    if typeof( x ) <: Vector
-        @ensure (1 ≤ m ≤ length( x ))  "element out of bounds"
-        return x[m]
-    end
-    @ensure false "not a vector"
-end
+#function easy( x, m )
+#    if x == nothing return nothing end
+#    if typeof( x ) <: Vector
+#        @ensure (1 ≤ m ≤ length( x ))  "element out of bounds"
+#        return x[m]
+#    end
+#    @ensure false "not a vector"
+#end
 
 
 function InsideObjective!( 
